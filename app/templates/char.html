@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% include 'navbar.html' %}
+{% block content %}
+    <div class="flex-grow flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
+        <h1 class="text-2xl font-bold text-center mb-6">Conta a quantidade que uma determinada letra aparece na string</h1>
+        <form method="post" class="space-y-4">
+            {{ form.csrf_token }}
+            <div>
+                {{ form.string.label(class_="block text-sm font-medium text-gray-700 mb-1") }}
+                {{ form.string(class_="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500") }}
+            </div>
+            <div>
+                {{ form.letter.label(class_="block text-sm font-medium text-gray-700 mb-1") }}
+                {{ form.letter(class_="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500") }}
+            </div>
+            {{ form.submit(class_="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2") }}
+        </form>
+
+        <div id="error" class="mt-4 hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"></div>
+
+        {% if message %}
+            <div class="mb-4 px-4 py-3 rounded"></div>
+            <h3 class="text-lg font-semibold mb-2">Resposta:</h3>
+            <p class="text-sm break-words">{{ message }}</p>
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}

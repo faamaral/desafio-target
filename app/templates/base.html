@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+        <title>Desafio</title>
+    </head>
+    <body class="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col">
+    {% block nav %}
+    	
+    {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    </body>
+</html>
